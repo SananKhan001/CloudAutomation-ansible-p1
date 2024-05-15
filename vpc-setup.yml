@@ -129,7 +129,7 @@
         route_table_id: 
         routes: 
           - dest: 0.0.0.0/0
-            gateway_id: "{{NATGW_out.gateway_id}}"
+            gateway_id: "{{NATGW_out.nat_gateway_id}}"
         state: "{{state}}" 
         subnets: 
           - "{{privsub1_out.subnet.id}}"
