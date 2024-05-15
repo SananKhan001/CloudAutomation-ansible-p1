@@ -35,9 +35,6 @@
           cidr_ip: "{{MYIP}}"
     register: BastionSG_out
 
-  - debug:
-      var: bastion_ami
-
   - name: Creating Bastion Host
     ec2_instance:
       key_name: vprofile-key
