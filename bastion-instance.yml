@@ -13,6 +13,7 @@
     ec2_key:
       name: vprofile-key
       region: "{{region}}"
+      state: "{{state}}"
     register: key_out
 
   - name: Save private key into file bastion-key.pem
@@ -28,6 +29,7 @@
       description: Allow port 22 from everywhere and all port within sg
       region: "{{region}}"
       vpc_id: "{{vpc_id}}"
+      state: "{{state}}"
       rules:
         - proto: tcp
           from_port: 22
@@ -38,6 +40,7 @@
   - name: Creating Bastion Host
     ec2_instance:
       key_name: vprofile-key
+      state: "{{state}}"
       region: "{{region}}"
       instance_type: t2.micro
       image_id: "{{bastion_ami}}"
